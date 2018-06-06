@@ -1,0 +1,35 @@
+<div class="border border-dark p-3 rounded">
+  <form>
+    <div class="form-group">
+      <app-datagrid #userGrid [hasUpdate]="true" (onUpdateCallBackMethod)="updateUser($event)" [hasDelete]="true" (onDeleteCallBackMethod)="deleteUser($event)"
+        [columns]="userGridColumns" [pageSize]="2" [hasPaging]="true" [data]="userGridData" (onCallBackMethod)="getUsers($event)"
+        (onSelectItem)="selectUser($event)"></app-datagrid>
+    </div>
+
+  </form>
+
+  <!-- <div *ngIf="showUserArea" class="form-group">
+      Button trigger modal 
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="getUserTodoList()">
+        Launch demo modal
+      </button>
+    </div>
+  </form>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-datagrid #todoGrid [columns]="columns" [data]="postData" [loading]="isLoading"></app-datagrid>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+</div>

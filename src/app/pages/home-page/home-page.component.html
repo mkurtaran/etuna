@@ -1,0 +1,26 @@
+<div class="border border-secondary p-3 rounded">
+  <form>
+    <!--<div class="form-group">
+      <app-dropdown [data]="posts" dataKey="id" dataValue="name" width="250" (change)="onChange($event)"></app-dropdown>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Default input" [ngModelOptions]="{standalone: true}" [(ngModel)]="username">
+    </div>
+
+    <app-datagrid #postGrid [columns]="columns" [data]="postData" [loading]="isLoading" (onSelectItem)="getSelectedPostGridItem($event)"></app-datagrid>-->
+
+
+    <div class="form-group">
+      <textarea class="form-control" rows="4" placeholder="name@example.com" [ngModelOptions]="{standalone: true}" [(ngModel)]="message"
+        [disabled]="addMessageEnabled"></textarea>
+    </div>
+    <div class="form-group">
+      <div class="text-right">
+        <button type="button" class="btn btn-outline-primary" (click)="saveMessage(message)" [disabled]="addMessageEnabled">
+          {{addMessageEnabled ? "Kaydediliyor" : "Kaydet"}}
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>

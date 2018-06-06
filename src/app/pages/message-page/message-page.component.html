@@ -1,0 +1,65 @@
+<div class="border border-secondary p-3 rounded">
+  <div *ngIf="showWarn" class="alert alert-warning" role="alert">
+    {{warningMessage}}
+  </div>
+
+  <div *ngIf="!loading">
+    <div *ngFor="let message of messageList?.slice().reverse()" class="flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{message.createDate | date:'dd/MM/y hh:mm'}}</h5>
+        <small>{{getLiveTime(message.createDate, 0)}}</small>
+      </div>
+      <p class="mb-1" [innerHtml]="message.message | html"></p>
+      <div class="text-right">
+        <a href="#" class="badge badge-info" data-toggle="modal" data-target="#updateMessage" (click)="getSelectedMessageForUpdate(message)">Güncelle</a>
+        <a href="#" class="badge badge-danger" (click)="deleteMessage(message)">Sil</a>
+      </div>
+      <hr/>
+    </div>
+    <div *ngIf="prevKeys?.length || nextKey">
+      <nav>
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="!prevKeys?.length">
+            <a class="page-link" (click)="prevPage()">Önceki Sayfa</a>
+          </li>
+          <li class="page-item" [class.disabled]="!nextKey">
+            <a class="page-link" (click)="nextPage()">Sonraki Sayfa</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <app-loadingspinner *ngIf="loading"></app-loadingspinner>
+
+  <!-- Modal -->
+  <div class="modal fade" id="updateMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{selectedMessage.createDate | date:'dd/MM/y hh:mm'}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <textarea class="form-control" rows="6" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedMessage.message"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="text-right">
+                <button type="button" class="btn btn-outline-primary" (click)="updateMessage()" data-dismiss="modal">
+                  Güncelle
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

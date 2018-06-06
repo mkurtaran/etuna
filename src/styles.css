@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+.btn {
+  cursor: pointer;
+}
+
+.loader {
+  border: 5px solid #8a8a8a;
+  border-radius: 50%;
+  border-top: 5px solid #20567a;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  margin: 5px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
